@@ -2,14 +2,13 @@ name: Medium Biomes
 version: 0.1.0
 
 pipeline:
-  - beet.contrib.render
+  - src.plugins.noise
 
 meta:
-  render:
-    data_pack:
-      - "**"
+  base_version: "1.20"
 
 data_pack:
+  load: src/datapack
   description: {"text":"Medium Biomes\n1.20 - 26.1", "color":"gray"}
   pack_format: 15
   min_format: 15
@@ -17,6 +16,5 @@ data_pack:
   supported_formats:
     min_inclusive: 15
     max_inclusive: 101
-  load: src/datapack
 
 output: build
