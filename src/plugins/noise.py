@@ -2,14 +2,13 @@ from beet import Context, DataPack
 from beet.contrib.vanilla import Vanilla
 from beet.contrib.worldgen import WorldgenNoise
 
-TEMPERATURE = "minecraft:temperature"
-TEMPERATURE_FIRST_OCTAVE = -11  # defaults to -10 or -12 for large biomes
-EROSION = "minecraft:erosion"
-EROSION_FIRST_OCTAVE = -10  # defaults to -9 or -11 for large biomes
-VEGETATION = "minecraft:vegetation"
-VEGETATION_FIRST_OCTAVE = -9  # defaults to -8 or -10 for large biomes
-CONTINENTALNESS = "minecraft:continentalness"
-CONTINENTALNESS_FIRST_OCTAVE = -10  # defaults to -9 or -11 for large biomes
+# Map of noise name -> firstOctave override.
+NOISE_PATCHES: dict[str, int] = {
+    "minecraft:temperature":     -11,  # default -10 / large -12
+    "minecraft:erosion":         -10,  # default  -9 / large -11
+    "minecraft:vegetation":       -9,  # default  -8 / large -10
+    "minecraft:continentalness": -10,  # default  -9 / large -11
+}
 
 
 def beet_default(ctx: Context):
@@ -22,18 +21,7 @@ def get_source(vanilla: Vanilla, version: str):
 
 
 def apply_patch(pack: DataPack, source):
-    patched = source[TEMPERATURE].copy()
-    patched.data["firstOctave"] = TEMPERATURE_FIRST_OCTAVE
-    pack[WorldgenNoise][TEMPERATURE] = patched
-
-    patched = source[EROSION].copy()
-    patched.data["firstOctave"] = EROSION_FIRST_OCTAVE
-    pack[WorldgenNoise][EROSION] = patched
-
-    patched = source[VEGETATION].copy()
-    patched.data["firstOctave"] = VEGETATION_FIRST_OCTAVE
-    pack[WorldgenNoise][VEGETATION] = patched
-
-    patched = source[CONTINENTALNESS].copy()
-    patched.data["firstOctave"] = CONTINENTALNESS_FIRST_OCTAVE
-    pack[WorldgenNoise][CONTINENTALNESS] = patched
+    for name, first_octave in NOISE_PATCHES.items():
+        patched = source[name].copy()
+        patched.data["firstOctave"] = first_octave
+        pack[WorldgenNoise][name] = patched
