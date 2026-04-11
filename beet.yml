@@ -5,16 +5,16 @@ pipeline:
   - src.plugins.noise
 
 meta:
-  base_version: "1.20"
+  base_version: "1.19" #
 
 data_pack:
   load: src/datapack
-  description: {"text":"Medium Biomes\n1.20 - 26.1", "color":"gray"}
-  pack_format: 15
-  min_format: 15
+  description: {"text":"Medium Biomes\n1.18 - 26.1", "color":"gray"}
+  pack_format: 8
+  min_format: 8
   max_format: 101
   supported_formats:
-    min_inclusive: 15
+    min_inclusive: 8
     max_inclusive: 101
 
 output: build
