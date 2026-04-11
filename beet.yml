@@ -5,7 +5,7 @@ pipeline:
   - src.plugins.noise
 
 meta:
-  base_version: "1.19" #
+  base_version: "1.19" # Do not set to 1.18 => beet doesn't support this version.
 
 data_pack:
   load: src/datapack
