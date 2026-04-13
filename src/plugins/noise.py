@@ -2,6 +2,8 @@ from beet import Context, DataPack
 from beet.contrib.vanilla import Vanilla
 from beet.contrib.worldgen import WorldgenNoise
 
+from src.plugins.utils import iterate_versions
+
 # Map of noise name -> firstOctave override.
 NOISE_PATCHES: dict[str, int] = {
     "minecraft:temperature":     -11,  # default -10 / large -12
@@ -12,16 +14,11 @@ NOISE_PATCHES: dict[str, int] = {
 
 
 def beet_default(ctx: Context):
-    source = get_source(ctx.inject(Vanilla), ctx.meta["base_version"])
-    apply_patch(ctx.data, source)
+    vanilla = ctx.inject(Vanilla)
 
-
-def get_source(vanilla: Vanilla, version: str):
-    return vanilla.releases[version].mount("data").data[WorldgenNoise]
-
-
-def apply_patch(pack: DataPack, source):
-    for name, first_octave in NOISE_PATCHES.items():
-        patched = source[name].copy()
-        patched.data["firstOctave"] = first_octave
-        pack[WorldgenNoise][name] = patched
+    for pack, version in iterate_versions(ctx):
+        for name, value in NOISE_PATCHES.items():
+            source = vanilla.releases[version].mount("data").data[WorldgenNoise]
+            patched = source[name].copy()
+            patched.data["firstOctave"] = value
+            pack[WorldgenNoise][name] = patched
