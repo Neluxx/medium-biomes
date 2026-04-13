@@ -5,16 +5,12 @@ pipeline:
   - src.plugins.noise
 
 meta:
-  base_version: "1.19" # Do not set to 1.18 => beet doesn't support this version.
+  base_version: "1.21.9"
 
 data_pack:
   load: src/datapack
-  description: {"text":"Medium Biomes\n1.18 - 26.1", "color":"gray"}
-  pack_format: 8
-  min_format: 8
+  description: {"text":"Medium Biomes\n1.21.9 - 26.1", "color":"gray"}
+  min_format: 82
   max_format: 101
-  supported_formats:
-    min_inclusive: 8
-    max_inclusive: 101
 
 output: build
