@@ -5,14 +5,14 @@ pipeline:
   - src.plugins.noise
 
 meta:
-  base_version: "1.19" # Do not set to 1.18 => this version leads to an error
+  base_version: "1.19"
 
 data_pack:
   load: src/datapack
-  description: {"text":"Medium Biomes\n1.18 - 1.21.8", "color":"gray"}
-  pack_format: 8
+  description: {"text":"Medium Biomes\n1.19 - 1.21.8", "color":"gray"}
+  pack_format: 10
   supported_formats:
-    min_inclusive: 8
+    min_inclusive: 10
     max_inclusive: 81
 
 output: build
