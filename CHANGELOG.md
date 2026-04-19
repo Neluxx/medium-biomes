@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Dependencies
 
-## [v0.2.1](https://github.com/Neluxx/medium-biomes/releases/tag/v0.2.1) - 2026-04-13
+## [v1.0.0](https://github.com/Neluxx/medium-biomes/releases/tag/v1.0.0) - 2026-04-19
 
 ### Changed
-- Set biome size between default and large biomes
+- Set biome sizes between default and large biomes
