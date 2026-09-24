@@ -21,6 +21,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Dependencies
 
+## [v1.2.1](https://github.com/Neluxx/medium-biomes/releases/tag/v1.2.1) - 2026-09-24
+
+### Fixed
+- Add overlay to support Minecraft 26.3 Wilderness Bound
+
 ## [v1.2.0](https://github.com/Neluxx/medium-biomes/releases/tag/v1.2.0) - 2026-09-24
 
 ### Added
