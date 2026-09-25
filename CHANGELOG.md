@@ -21,6 +21,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Dependencies
 
+## [v1.2.2](https://github.com/Neluxx/medium-biomes/releases/tag/v1.2.2) - 2026-09-25
+
+### Fixed
+- Use the right octave key based on the Minecraft version
+
 ## [v1.2.1](https://github.com/Neluxx/medium-biomes/releases/tag/v1.2.1) - 2026-09-24
 
 ### Fixed
