@@ -29,3 +29,17 @@ def field_accessor(config: dict, version: str) -> Callable[[str], dict]:
     """
     nested = parse_version(version) < (1, 20, 5)
     return lambda name: config[name]["value"] if nested else config[name]
+ 
+ 
+def octave_key(noise: dict) -> str:
+    """Return the name of the first-octave field used by a noise definition.
+ 
+    26.3 renamed `firstOctave` to `base_octave`. The key is detected from the
+    vanilla data itself, so every version (base pack and overlays) keeps the
+    format it expects without hard-coding version boundaries.
+    """
+    for key in ("base_octave", "firstOctave"):
+        if key in noise:
+            return key
+    raise KeyError(f"Noise has neither 'base_octave' nor 'firstOctave': {noise}")
+
