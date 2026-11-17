@@ -1,7 +1,7 @@
 from beet import Context
 from beet.contrib.worldgen import WorldgenNoise
 
-from datapack_utils import Targets, octave_key
+from beet_datapack_utils import Targets, octave_key
 
 # Map of noise name -> first/base octave override.
 # The value is written to `firstOctave` (<= 26.2) or `base_octave` (>= 26.3).
