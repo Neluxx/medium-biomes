@@ -1,7 +1,7 @@
 from beet import Context
 from beet.contrib.worldgen import WorldgenNoise
 
-from beet_datapack_utils import Targets, octave_key
+from beet_datapack_utils import resolve_key, targets
 
 # Map of noise name -> first/base octave override.
 # The value is written to `firstOctave` (<= 26.2) or `base_octave` (>= 26.3).
@@ -14,7 +14,7 @@ NOISE_PATCHES: dict[str, int] = {
 
 
 def beet_default(ctx: Context):
-    for target in ctx.inject(Targets):
+    for target in targets(ctx):
         for name, value in NOISE_PATCHES.items():
             with target.patch(WorldgenNoise, name) as noise:
-                noise[octave_key(noise)] = value
+                noise[resolve_key(noise, "base_octave", "firstOctave")] = value
