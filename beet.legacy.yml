@@ -5,7 +5,7 @@ pipeline:
   - src.plugins.noise
 
 meta:
-  base_version: "1.19"
+  base_version: "1.19.3"
 
 data_pack:
   load: src/datapack
