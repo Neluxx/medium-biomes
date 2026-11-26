@@ -22,7 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Dependencies
 - Add `beet-datapack-utils` v1.0.0
-- Require `beet` 0.119.0 or newer
+- Require `beet` 0.121.2 or newer
 
 ## [v1.2.2](https://github.com/Neluxx/medium-biomes/releases/tag/v1.2.2) - 2026-09-25
 
